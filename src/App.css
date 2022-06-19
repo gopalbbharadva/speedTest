@@ -1,3 +1,16 @@
+:root {
+  --primary-color: #1e3a8a;
+  --white-color: #f8fafc;
+  --cta-color: #0eafe9;
+  --cta-hover-color: #0284c7;
+  --failure-color: #dc2626;
+  --success-color: #16a34a;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
 .App {
   text-align: center;
 }

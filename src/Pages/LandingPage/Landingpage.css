@@ -1,0 +1,54 @@
+.main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem;
+}
+.input {
+  border: none;
+  border-radius: 8px;
+  padding: 2rem 0 2rem 0;
+  font-size: 2rem;
+  text-align: center;
+  max-width: 20rem;
+  width: 100%;
+}
+.input:focus {
+  outline: none;
+}
+.alphabet-container {
+  background-color: var(--white-color);
+  margin-top: 2rem;
+  max-width: 20rem;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--cta-color);
+}
+.err-div {
+  background-color: var(--white-color);
+  padding: 0 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  color: var(--failure-color);
+}
+.visible {
+  visibility: visible;
+}
+.hidden {
+  visibility: hidden;
+}
+.alphabet-container p {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--success-color);
+}
+.timer {
+  margin-top: 1rem;
+}
+.timer > span {
+  font-weight: bold;
+}
+.best-time {
+  margin: 1rem 0 1rem 0;
+}

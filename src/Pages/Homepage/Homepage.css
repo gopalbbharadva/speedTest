@@ -1,0 +1,25 @@
+.intro {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem;
+}
+.cta-button {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--cta-color);
+  color: var(--white-color);
+  cursor: pointer;
+  padding: 10px 12px;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.cta-button:hover {
+  background-color: var(--cta-hover-color);
+}
+.rules {
+  font-size: 1.2rem;
+  text-align: start;
+}
