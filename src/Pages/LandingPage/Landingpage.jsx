@@ -41,6 +41,7 @@ export const Landingpage = () => {
   };
 
   const setHighScore = () => {
+    console.log(msgLength, limit);
     if (msgLength.current === limit - 1) {
       if (highScore !== "") {
         if (highScore > time) {
@@ -51,6 +52,7 @@ export const Landingpage = () => {
         }
       } else {
         localStorage.setItem("time", time);
+        setAlphabet("New high Score");
       }
       setError("");
       clearInterval(timerId.current);
