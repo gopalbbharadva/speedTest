@@ -6,8 +6,8 @@ import { getRandomAlphabet } from "../../Utils/getRandomAlphabet";
 import "./Landingpage.css";
 
 export const Landingpage = () => {
-  const limit = 5;
-  const msgLength = useRef(0);
+  let msgLength = useRef(null);
+  const limit = 20;
   const timerId = useRef(null);
   const [alphabet, setAlphabet] = useState(getRandomAlphabet());
   const [error, setError] = useState("");
@@ -29,18 +29,19 @@ export const Landingpage = () => {
     };
   }, []);
 
-  const checkForCorrectAlphabet = (lastAlphabet, randomAlphabet) => {
+  const checkForCorrectAlphabet = (e, lastAlphabet, randomAlphabet) => {
     if (lastAlphabet === alphabet) {
       setAlphabet(randomAlphabet);
       setError("");
     } else {
+      e.preventDefault();
       setTime((prevTime) => prevTime + 500);
       setError("Enter valid alphabets");
     }
   };
 
-  const setHighScore = (msgLength) => {
-    if (msgLength === limit) {
+  const setHighScore = () => {
+    if (msgLength.current === limit - 1) {
       if (highScore !== "") {
         if (highScore > time) {
           setAlphabet("Success");
@@ -60,8 +61,8 @@ export const Landingpage = () => {
     const randomAlphabet = getRandomAlphabet();
     msgLength.current = e.target.value.length;
     const lastAlphabet = getLastAlphabet(e);
-    checkForCorrectAlphabet(lastAlphabet, randomAlphabet);
-    setHighScore(msgLength.current);
+    checkForCorrectAlphabet(e, lastAlphabet, randomAlphabet);
+    setHighScore();
   };
 
   return (
@@ -69,10 +70,10 @@ export const Landingpage = () => {
       <div className={`err-div ${error ? "visible" : "hidden"}`}>
         {error ? <p>{error}</p> : <p>Error will show here</p>}
       </div>
-      {msgLength.current <   limit ? (
+      {msgLength.current < limit - 1 ? (
         <input
           autoFocus={true}
-          onChange={(e) => enterAlphabets(e)}
+          onKeyDown={(e) => enterAlphabets(e)}
           type="text"
           className="input"
           placeholder="Type... "

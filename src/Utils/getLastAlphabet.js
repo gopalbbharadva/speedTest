@@ -1,1 +1,1 @@
-export const getLastAlphabet = (e) => e.target.value[e.target.value.length - 1];
+export const getLastAlphabet = (e) => e.key;
